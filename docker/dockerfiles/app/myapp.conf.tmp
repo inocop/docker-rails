@@ -1,0 +1,36 @@
+[supervisord]
+nodaemon=true
+
+[program:rails]
+directory=/var/www/app/source
+command=/var/www/app/source/bin/rails s -p 3333 -b 0.0.0.0
+environment=RAILS_ENV="${RAILS_ENV}"
+autostart=true
+autorestart=unexpected
+startsecs=30
+startretries=1
+#user=root
+
+# ログファイル default: /var/log/supervisor/rails-stdout---supervisor-xxxxxx.log
+#stdout_logfile=/dev/stdout
+#stderr_logfile=/dev/stderr
+
+# ログファイルの最大サイズ default: 50MB
+#stdout_logfile_maxbytes=0
+#stderr_logfile_maxbytes=0
+
+# ログファイルのバックアップ数 default: 10
+#stdout_logfile_backups=0
+#stderr_logfile_backups=0
+
+
+[program:rsyslogd]
+command=/usr/sbin/rsyslogd -n
+autostart=true
+autorestart=unexpected
+
+
+[program:cron]
+command=/usr/sbin/cron -f
+autostart=true
+autorestart=unexpected
