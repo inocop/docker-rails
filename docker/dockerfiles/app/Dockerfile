@@ -6,10 +6,14 @@ RUN apt update \
                    rsyslog \
                    cron \
                    vim \
+                   curl \
 # for rails \
 &&  apt install -y build-essential \
                    zlib1g-dev \
                    default-libmysqlclient-dev \
+# node install \
+&&  curl --silent --location https://deb.nodesource.com/setup_8.x | bash - \
+&&  apt install nodejs \
 # disk clean \
 &&  apt clean \
 &&  rm -rf /var/lib/apt/lists/*
