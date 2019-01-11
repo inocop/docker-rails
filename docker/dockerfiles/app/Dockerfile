@@ -19,9 +19,6 @@ RUN apt update \
 &&  apt clean \
 &&  rm -rf /var/lib/apt/lists/*
 
-# global gem
-RUN bash -l -c 'gem install --no-document nokogiri -v "1.10.0"'
-
 # edit /etc/*
 RUN sed -i -e "s/#cron\.\*/cron\.\*/" /etc/rsyslog.conf  # set output cron.log \
 &&  ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime # set TiemZone JST
