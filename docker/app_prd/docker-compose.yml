@@ -19,12 +19,15 @@ services:
       - "3000:3333"
     volumes:
       - ../../:/var/www/app
+      - bundle:/usr/local/bundle
       - os_log:/var/log
     init: true
     restart: always
 
 volumes:
   db_data:
+    driver: 'local'
+  bundle:
     driver: 'local'
   os_log:
     driver: 'local'

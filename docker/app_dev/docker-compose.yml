@@ -18,6 +18,7 @@ services:
       - "3333:3333"
     volumes:
       - ../../:/var/www/app:cached
+      - bundle:/usr/local/bundle:delegated
     init: true
 
   adminer:
@@ -27,4 +28,6 @@ services:
 
 volumes:
   db_data:
+    driver: 'local'
+  bundle:
     driver: 'local'
