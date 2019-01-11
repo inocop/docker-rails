@@ -12,6 +12,6 @@ $ docker-compose up -d --build
 $ docker-compose exec app bash
 [docker]$ gem install --no-document rails
 [docker]$ cd /var/www/app/source
-[docker]$ rails _5.2.2_ new . --database=mysql --skip-bundle --skip-coffee --skip-turbolinks --skip-sprockets
+[docker]$ rails _5.2.2_ new . --database=mysql --skip-bundle --skip-coffee --skip-turbolinks --skip-sprockets --skip-spring
 [docker]$ bundle install
 ```
